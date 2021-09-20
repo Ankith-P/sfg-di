@@ -1,20 +1,26 @@
 package guru.spring.framework.sfgdiank;
 
+import guru.spring.framework.sfgdiank.controller.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-
-import guru.spring.framework.sfgdiank.controller.ConstructorInjectedController;
-import guru.spring.framework.sfgdiank.controller.MyController;
-import guru.spring.framework.sfgdiank.controller.PropertyInjectedController;
-import guru.spring.framework.sfgdiank.controller.SetterInjectedController;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan(basePackages = {"com.springframework.pets","guru.spring.framework.sfgdiank"})
 public class SfgDiAnkApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ac=SpringApplication.run(SfgDiAnkApplication.class, args);
-		
+
+
+		PetController petController = ac.getBean("petController", PetController.class);
+		System.out.println("--- The Best Pet is ---");
+		System.out.println(petController.whichPetIsTheBest());
+
+		I18nController i18nController = (I18nController) ac.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
+
 		MyController mc=ac.getBean(MyController.class);
 		
 		MyController mc2=(MyController)ac.getBean("myController");
