@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.springframework.pets","guru.spring.framework.sfgdiank"})
+//@ComponentScan(basePackages = {"com.springframework.pets","guru.spring.framework.sfgdiank"})//for pets, now we have move to java configurations
 public class SfgDiAnkApplication {
 
 	public static void main(String[] args) {

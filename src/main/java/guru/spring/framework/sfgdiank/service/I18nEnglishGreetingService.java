@@ -1,7 +1,6 @@
 package guru.spring.framework.sfgdiank.service;
 
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Service;
+import guru.spring.framework.sfgdiank.repositories.EnglishGreetingRepositiory;
 
 /**
  * Created by jt on 12/27/19.
@@ -9,8 +8,14 @@ import org.springframework.stereotype.Service;
 /*@Profile("EN")
 @Service("i18nService")*/
 public class I18nEnglishGreetingService implements GreetingService {
+    private EnglishGreetingRepositiory englishGreetingRepositiory;
+
+    public I18nEnglishGreetingService(EnglishGreetingRepositiory englishGreetingRepositiory) {
+        this.englishGreetingRepositiory = englishGreetingRepositiory;
+    }
+
     @Override
     public String sayGreeting() {
-        return "Hello World - EN";
+        return englishGreetingRepositiory.englishGreeting();
     }
 }
