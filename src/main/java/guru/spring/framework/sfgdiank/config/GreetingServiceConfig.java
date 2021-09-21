@@ -2,13 +2,16 @@ package guru.spring.framework.sfgdiank.config;
 
 import com.springframework.pets.PetService;
 import com.springframework.pets.PetServiceFactory;
+import guru.spring.framework.sfgdiank.datasource.FakeDataSource;
 import guru.spring.framework.sfgdiank.repositories.EnglishGreetingRepositiory;
 import guru.spring.framework.sfgdiank.repositories.EnglishGreetingRepositioryImpl;
 import guru.spring.framework.sfgdiank.repositories.SpanishGreetingRepository;
 import guru.spring.framework.sfgdiank.repositories.SpanishGreetingRepositoryImpl;
 import guru.spring.framework.sfgdiank.service.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
+@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
@@ -18,6 +21,20 @@ public class GreetingServiceConfig {
     {
         return new ConstructorInjectedGreetingServiceImpl();
     }
+    /*ank.jdbc.username=username1
+    ank.jdbc.password=password1
+    ank.jdbc.url=jdbc.oracle.thin:localhost:1521:orcl*/
+
+    @Bean
+    FakeDataSource fakeDataSource(@Value("${ank.jdbc.username}")String username,@Value("${ank.jdbc.password}") String password,@Value("${ank.jdbc.url}") String dbUrl)
+    {
+        FakeDataSource fakeDataSource=new FakeDataSource();
+        fakeDataSource.setUsername(username);
+        fakeDataSource.setPassword(password);
+        fakeDataSource.setDbUrl(dbUrl);
+        return fakeDataSource;
+    }
+
     @Bean
     PropertyInjectedGreetingServiceImpl propertyInjectedGreetingServiceImpl1()
     {

@@ -1,6 +1,7 @@
 package guru.spring.framework.sfgdiank;
 
 import guru.spring.framework.sfgdiank.controller.*;
+import guru.spring.framework.sfgdiank.datasource.FakeDataSource;
 import guru.spring.framework.sfgdiank.service.PrototypeBean;
 import guru.spring.framework.sfgdiank.service.SingletonBean;
 import org.springframework.boot.SpringApplication;
@@ -77,6 +78,12 @@ public class SfgDiAnkApplication {
 		}
 
 		System.out.println("############################Scope Check Ends##################################################### ");
+		FakeDataSource fds=ac.getBean(FakeDataSource.class);
+		System.out.println("###############Fake datasource check Starts##################");
+		System.out.println("fake datasource username "+fds.getUsername());
+		System.out.println("fake datasource password "+fds.getPassword());
+		System.out.println("fake datasource username "+fds.getDbUrl());
+		System.out.println("###############Fake datasource check##################");
 	}
 
 }
