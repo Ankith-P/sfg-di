@@ -1,6 +1,8 @@
 package guru.spring.framework.sfgdiank;
 
 import guru.spring.framework.sfgdiank.controller.*;
+import guru.spring.framework.sfgdiank.service.PrototypeBean;
+import guru.spring.framework.sfgdiank.service.SingletonBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -35,6 +37,46 @@ public class SfgDiAnkApplication {
 		
 		ConstructorInjectedController cic=ac.getBean(ConstructorInjectedController.class);
 		System.out.println("Spring DI Constructor CIC "+cic.getGreeting());
+
+		System.out.println("############################Scope Check Starts##################################################### ");
+		SingletonBean sb= (SingletonBean) ac.getBean("singletonBean");
+		System.out.println("Singleton check "+sb.getMyScope());
+		System.out.println("-------- "+sb.getMyScope());
+		System.out.println("-------- "+sb);
+
+		SingletonBean sb2= (SingletonBean) ac.getBean("singletonBean");
+		System.out.println("Singleton check "+sb2.getMyScope());
+		System.out.println("-------- "+sb2.getMyScope());
+		System.out.println("-------- "+sb2);
+
+		if(sb.equals(sb2))
+		{
+
+			System.out.println("Singleton Check successful !!!!!!!");
+		}
+
+
+		PrototypeBean pb= (PrototypeBean) ac.getBean("prototypeBean");
+		System.out.println("Singleton check "+pb.getMyScope());
+		System.out.println("-------- "+pb.getMyScope());
+		System.out.println("-------- "+pb);
+
+		PrototypeBean pb2= (PrototypeBean) ac.getBean("prototypeBean");
+		System.out.println("Singleton check "+pb2.getMyScope());
+		System.out.println("-------- "+pb2.getMyScope());
+		System.out.println("-------- "+pb2);
+
+		if(pb.equals(pb2))
+		{
+
+			System.out.println("Prototype Bean :Same object should not have returned! ");
+		}
+		else
+		{
+			System.out.println("Prototype Bean :Different objects are returned !...");
+		}
+
+		System.out.println("############################Scope Check Ends##################################################### ");
 	}
 
 }
