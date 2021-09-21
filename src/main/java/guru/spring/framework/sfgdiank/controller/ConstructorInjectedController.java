@@ -20,7 +20,7 @@ public class ConstructorInjectedController {
 
 	/*This option is autowired from spring 4.2*/
 	//@Autowired
-	public ConstructorInjectedController(@Qualifier("constructorInjectedGreetingServiceImpl")GreetingService greetingService) {
+	public ConstructorInjectedController(@Qualifier("constructorInjectedGreetingServiceImpl1")GreetingService greetingService) {
 		super();
 		this.greetingService = greetingService;
 	}

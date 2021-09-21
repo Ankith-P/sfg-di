@@ -2,7 +2,7 @@ package guru.spring.framework.sfgdiank.service;
 
 import org.springframework.stereotype.Service;
 
-@Service
+//@Service
 public class setterInjectedGreetingServiceImpl implements GreetingService {
 
 	@Override

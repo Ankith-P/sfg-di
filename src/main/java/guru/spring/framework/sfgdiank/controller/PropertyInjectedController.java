@@ -9,7 +9,7 @@ import guru.spring.framework.sfgdiank.service.GreetingService;
 @Controller
 
 public class PropertyInjectedController {
-	@Qualifier("propertyInjectedGreetingServiceImpl")
+	@Qualifier("propertyInjectedGreetingServiceImpl1")
 	@Autowired
 	GreetingService greetingService;
 	
