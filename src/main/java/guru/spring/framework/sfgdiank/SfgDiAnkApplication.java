@@ -1,5 +1,6 @@
 package guru.spring.framework.sfgdiank;
 
+import guru.spring.framework.sfgdiank.config.PropertiesConfiguration;
 import guru.spring.framework.sfgdiank.controller.*;
 import guru.spring.framework.sfgdiank.datasource.FakeDataSource;
 import guru.spring.framework.sfgdiank.service.PrototypeBean;
@@ -84,6 +85,16 @@ public class SfgDiAnkApplication {
 		System.out.println("fake datasource password "+fds.getPassword());
 		System.out.println("fake datasource username "+fds.getDbUrl());
 		System.out.println("###############Fake datasource check##################");
+
+
+		System.out.println("###############Configuration properties class test starts##################");
+		PropertiesConfiguration pc=ac.getBean(PropertiesConfiguration.class);
+		System.out.println("PropertiesConfiguration  username "+pc.getUsername());
+		System.out.println("PropertiesConfiguration password "+pc.getPassword());
+		System.out.println("PropertiesConfiguration dburl "+pc.getDbUrl());
+		System.out.println("###############Configuration properties class test ends##################");
+
+
 	}
 
 }
