@@ -1,6 +1,7 @@
 package guru.spring.framework.sfgdiank;
 
 import guru.spring.framework.sfgdiank.config.PropertiesConfiguration;
+import guru.spring.framework.sfgdiank.config.SfgConstructorConfig;
 import guru.spring.framework.sfgdiank.controller.*;
 import guru.spring.framework.sfgdiank.datasource.FakeDataSource;
 import guru.spring.framework.sfgdiank.service.PrototypeBean;
@@ -94,6 +95,12 @@ public class SfgDiAnkApplication {
 		System.out.println("PropertiesConfiguration dburl "+pc.getDbUrl());
 		System.out.println("###############Configuration properties class test ends##################");
 
+		System.out.println("###############Constructor Configuration properties class test starts##################");
+		SfgConstructorConfig scc=ac.getBean(SfgConstructorConfig.class);
+		System.out.println("SfgConstructorConfig  username "+scc.getUsername());
+		System.out.println("SfgConstructorConfig password "+scc.getPassword());
+		System.out.println("SfgConstructorConfig dburl "+scc.getUrl());
+		System.out.println("###############Constructor Configuration properties class test ends##################");
 
 	}
 

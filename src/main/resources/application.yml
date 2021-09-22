@@ -5,6 +5,8 @@ ank:
   jdbc:
     username: ymlusername
     password: ymlpassword
+    url: jdbc.oracle.thin:localhost:1521:orcl
+  jdbc1:
+    username: ymlusername
+    password: ymlpassword
     url: jdbc.oracle.thin:localhost:1521:orcl1
-
-

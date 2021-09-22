@@ -9,8 +9,10 @@ import guru.spring.framework.sfgdiank.repositories.SpanishGreetingRepository;
 import guru.spring.framework.sfgdiank.repositories.SpanishGreetingRepositoryImpl;
 import guru.spring.framework.sfgdiank.service.*;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
 
+@EnableConfigurationProperties(SfgConstructorConfig.class)
 @PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:sfgdi-config.xml")
 @Configuration
